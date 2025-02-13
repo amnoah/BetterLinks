@@ -1,0 +1,38 @@
+{
+  "loader": {
+    "name": "java_plain",
+    "version": "2.5.1-SNAPSHOT"
+  },
+  "license": "GPL-3",
+  "plugins": [
+    {
+      "id": "betterlinks",
+      "name": "BetterLinks",
+      "entrypoint": "better.links.sponge.BetterLinksSponge",
+      "description": "A packet based server links plugin.",
+      "version": "1.0.0",
+      "branding": {},
+      "links": {},
+      "contributors": [
+        {
+          "name": "am noah",
+          "description": "Lead Developer"
+        }
+      ],
+      "dependencies": [
+        {
+          "id": "spongeapi",
+          "version": "12.0.0-SNAPSHOT",
+          "load-order": "after",
+          "optional": false
+        },
+        {
+          "id": "packetevents",
+          "version": "*",
+          "load-order": "after",
+          "optional": false
+        }
+      ]
+    }
+  ]
+}

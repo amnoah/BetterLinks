@@ -1,0 +1,13 @@
+name: BetterLinks
+version: 1.0.0
+main: better.links.spigot.BetterLinksSpigot
+api-version: 1.13
+load: POSTWORLD
+folia-supported: true
+description: A packet based server links plugin.
+softdepend:
+  - BetterReload
+depend:
+  - packetevents
+authors:
+  - am noah

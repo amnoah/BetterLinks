@@ -1,0 +1,14 @@
+google:
+  weight: 3
+  name: "&6Google"
+  link: "https://google.com"
+
+modrinth:
+  weight: 2
+  name: "&aDownload Plugins Here"
+  link: "https://modrinth.com"
+
+youtube:
+  weight: 1
+  name: "&4You&fTube"
+  link: "https://youtube.com"
