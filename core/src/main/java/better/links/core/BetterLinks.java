@@ -2,7 +2,6 @@ package better.links.core;
 
 import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.event.SimplePacketListenerAbstract;
-import com.github.retrooper.packetevents.event.UserDisconnectEvent;
 import com.github.retrooper.packetevents.event.simple.PacketPlaySendEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.protocol.player.User;
@@ -11,7 +10,10 @@ import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerSe
 import net.kyori.adventure.text.Component;
 import sharkbyte.configuration.core.ConfigSection;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,7 +22,6 @@ public class BetterLinks extends SimplePacketListenerAbstract {
     private final static Pattern TRANSLATE = Pattern.compile("(?i)&[0-9A-FK-ORX]");
 
     private final List<WrapperCommonServerServerLinks.ServerLink> links = new ArrayList<>();
-    private final Set<User> users = new HashSet<>();
 
     public BetterLinks() {
         PacketEvents.getAPI().getEventManager().registerListeners(this);
@@ -49,7 +50,7 @@ public class BetterLinks extends SimplePacketListenerAbstract {
         List<WrapperCommonServerServerLinks.ServerLink>[] allLinks = linkMap.values().toArray(new List[]{});
         for (int i = allLinks.length - 1; i  >= 0; i--) links.addAll(allLinks[i]);
 
-        for (User user : users) loadUser(user);
+        for (User user : PacketEvents.getAPI().getProtocolManager().getUsers()) loadUser(user);
     }
 
     public void loadUser(User user) {
@@ -59,13 +60,7 @@ public class BetterLinks extends SimplePacketListenerAbstract {
     @Override
     public void onPacketPlaySend(PacketPlaySendEvent event) {
         if (event.getPacketType() != PacketType.Play.Server.JOIN_GAME) return;
-        users.add(event.getUser());
         loadUser(event.getUser());
-    }
-
-    @Override
-    public void onUserDisconnect(UserDisconnectEvent event) {
-        users.remove(event.getUser());
     }
 
     private static String translateColors(String text) {
