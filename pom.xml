@@ -7,12 +7,13 @@
     <groupId>better.links</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <modules>
         <module>core</module>
         <module>spigot</module>
         <module>sponge</module>
+        <module>paper</module>
     </modules>
 
     <properties>

@@ -10,7 +10,7 @@
     <parent>
         <groupId>better.links</groupId>
         <artifactId>parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <prerequisites>
@@ -34,7 +34,7 @@
             <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
         </repository>
-        <!-- Repo for BetterReload, FoliaLib, and sharkbyte-configuration -->
+        <!-- Repo for BetterReload and sharkbyte-configuration -->
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>better.links</groupId>
             <artifactId>core</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -134,7 +134,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
-                            <minimizeJar>false</minimizeJar>
+                            <minimizeJar>true</minimizeJar>
                             <relocations>
                                 <relocation>
                                     <pattern>sharkbyte.configuration</pattern>
@@ -143,10 +143,6 @@
                                 <relocation>
                                     <pattern>org.bstats</pattern>
                                     <shadedPattern>better.links.bstats</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>com.tcoded.folialib</pattern>
-                                    <shadedPattern>better.links.folialib</shadedPattern>
                                 </relocation>
                             </relocations>
                         </configuration>

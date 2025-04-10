@@ -10,7 +10,7 @@
       "name": "BetterLinks",
       "entrypoint": "better.links.sponge.BetterLinksSponge",
       "description": "A packet based server links plugin.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "branding": {},
       "links": {},
       "contributors": [
